@@ -1,0 +1,19 @@
+# Binários e builds
+*.exe
+*.dll
+*.so
+*.dylib
+bin/
+dist/
+
+# Variáveis de ambiente e segredos
+.env
+*.local
+
+# Ambientes e cache futuros (Python / IDE)
+.venv/
+venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
