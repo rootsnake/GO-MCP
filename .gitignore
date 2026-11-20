@@ -17,3 +17,5 @@ __pycache__/
 *.pyc
 .idea/
 .vscode/
+# Automação local de deploy (uso interno)
+deploy.ps1
