@@ -4,9 +4,9 @@
 
 Servidor **MCP (Model Context Protocol)** em **Go** projetado para atuar como *gateway* controlado entre agentes de IA e operações de infraestrutura local, containers Docker e automações de scripts[cite: 5].
 
-[![Go Version](https://img.shields.io/badge/Go-1.23+-00ADD8?style=flat&logo=go)](https://go.dev/)[cite: 5]
-[![MCP SDK](https://img.shields.io/badge/MCP-Official%20Go%20SDK-00ff66?style=flat)](https://github.com/modelcontextprotocol/go-sdk)[cite: 5]
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Docker-0078D6?style=flat&logo=windows)](https://www.docker.com/)[cite: 5]
+[![Go Version](https://img.shields.io/badge/Go-1.23+-00ADD8?style=flat&logo=go)](https://go.dev/)
+[![MCP SDK](https://img.shields.io/badge/MCP-Official%20Go%20SDK-00ff66?style=flat)](https://github.com/modelcontextprotocol/go-sdk)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Docker-0078D6?style=flat&logo=windows)](https://www.docker.com/)
 
 ---
 
