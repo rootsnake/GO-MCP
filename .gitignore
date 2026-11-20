@@ -19,3 +19,6 @@ __pycache__/
 .vscode/
 # Automação local de deploy (uso interno)
 deploy.ps1
+
+go-mcp-server*
+*.exe
