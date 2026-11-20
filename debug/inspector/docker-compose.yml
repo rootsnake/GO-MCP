@@ -1,0 +1,12 @@
+services:
+  mcp-inspector:
+    image: ghcr.io/modelcontextprotocol/inspector:latest
+    container_name: go-mcp-inspector
+    ports:
+      - "16274:6274"
+      - "16277:6277"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=6274
+      - MCP_SERVER_PORT=6277
+    restart: unless-stopped
