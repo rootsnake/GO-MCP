@@ -10,21 +10,26 @@ from pathlib import Path
 from typing import Any
 
 
-def check_working_directory() -> dict[str, Any]:
-    cwd = Path.cwd()
+def check_working_directory(cwd: Path) -> dict[str, Any]:
     passed = cwd.is_dir() and os.access(cwd, os.R_OK | os.X_OK)
     return {
         "name": "working_directory",
         "status": "ok" if passed else "error",
-        "message": "Diretório atual acessível." if passed else "Diretório atual não existe ou não pode ser lido.",
+        "message": (
+            "Diretório atual acessível."
+            if passed
+            else "Diretório atual não existe ou não pode ser lido."
+        ),
         "details": {"path": str(cwd)},
     }
 
 
 def check_temp_writable() -> dict[str, Any]:
     try:
-        with tempfile.NamedTemporaryFile(prefix="mcp-health-check-", delete=True):
-            pass
+        with tempfile.TemporaryDirectory(prefix="mcp-health-check-") as tmp_dir:
+            probe = Path(tmp_dir) / "probe.tmp"
+            probe.write_text("ok", encoding="utf-8")
+            probe.unlink(missing_ok=True)
         return {
             "name": "temp_directory_writable",
             "status": "ok",
@@ -68,12 +73,13 @@ def check_disk_space(path: Path, min_free_mb: int) -> dict[str, Any]:
         }
 
 
-def build_report(tag: str, min_free_mb: int) -> dict[str, Any]:
+def build_report(tag: str, min_free_mb: int, target_path: Path | None = None) -> dict[str, Any]:
     cwd = Path.cwd()
+    disk_target = (target_path or cwd).resolve()
     checks = [
-        check_working_directory(),
+        check_working_directory(cwd),
         check_temp_writable(),
-        check_disk_space(cwd, min_free_mb),
+        check_disk_space(disk_target, min_free_mb),
     ]
 
     has_error = any(check["status"] == "error" for check in checks)
@@ -90,6 +96,7 @@ def build_report(tag: str, min_free_mb: int) -> dict[str, Any]:
             "hostname": platform.node(),
             "os": platform.platform(),
             "python_version": platform.python_version(),
+            "pid": os.getpid(),
             "cwd": str(cwd),
         },
         "checks": checks,
@@ -113,13 +120,25 @@ def main() -> int:
         default=512,
         help="Limite mínimo de espaço livre em MB; abaixo disso gera aviso (predefinição: 512)",
     )
+    parser.add_argument(
+        "--path",
+        type=Path,
+        default=None,
+        help="Caminho alvo para checar espaço em disco (padrão: diretório atual)",
+    )
+    parser.add_argument(
+        "--pretty",
+        action="store_true",
+        help="Formata o JSON indentado para leitura humana no terminal",
+    )
     args = parser.parse_args()
 
     if args.min_free_mb < 0:
         parser.error("--min-free-mb não pode ser negativo")
 
-    report = build_report(args.tag, args.min_free_mb)
-    sys.stdout.write(json.dumps(report, ensure_ascii=False) + "\n")
+    report = build_report(args.tag, args.min_free_mb, args.path)
+    indent = 2 if args.pretty else None
+    sys.stdout.write(json.dumps(report, ensure_ascii=False, indent=indent) + "\n")
     return 1 if not report["ok"] else 0
 
 
