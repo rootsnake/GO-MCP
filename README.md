@@ -41,8 +41,6 @@ Cliente/agente MCP (por exemplo, Cursor)
 MCP Inspector ── usado em desenvolvimento para testar o servidor MCP
 ```
 
-O endereço `DOCKER_BRIDGE_URL` depende de onde o servidor está a correr. Em Docker Desktop, a configuração documentada pode usar `http://host.docker.internal:8787/docker`; confirma o valor no ambiente real antes de executar.
-
 ## Funcionalidades
 
 ### Docker Compose — disponível no fluxo atual
