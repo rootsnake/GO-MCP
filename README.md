@@ -109,7 +109,7 @@ O MCP Inspector pode ser usado para confirmar que o servidor anuncia as ferramen
 
 O script de publicação Git deve ser executado a partir da raiz do repositório. Antes de publicar, confirma o resultado de `git status` e revê o conteúdo staged; evita assumir que `git add .` só adicionará ficheiros pretendidos.
 
-## Roadmap sugerido
+## Roadmap em avaliação
 
 1. Integrar e testar o health check Python pelo bridge e pelo MCP.
 2. Uniformizar o formato JSON e os códigos de saída dos scripts.
