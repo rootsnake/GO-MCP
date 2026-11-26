@@ -1,4 +1,4 @@
-# GO-MCP Infra
+# GO-MCP Resources
 
 > **Estado:** MVP em desenvolvimento. As funcionalidades descritas como “em evolução” ou “planeadas” ainda podem não estar integradas no servidor MCP.
 
@@ -79,7 +79,7 @@ A rede `192.168.200.0/24` é uma sugestão inicial para o ambiente do utilizador
 
 O Nmap tem de estar instalado e acessível no `PATH` do ambiente onde o script Python é executado. A descoberta de hosts pode não detetar equipamentos que estejam offline ou bloqueiem probes.
 
-### TShark — planeado
+### TShark — Em andamento
 
 A análise com TShark ainda não está implementada. A evolução prevista é uma captura ao vivo com interface selecionada, duração limitada e filtros explícitos, seguida de um resumo JSON de metadados — por exemplo, protocolos, pares de IP/porta, DNS visível e volumes aproximados.
 
