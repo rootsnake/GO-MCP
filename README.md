@@ -145,4 +145,4 @@ A estrutura acima resume os caminhos descritos neste README. Ajusta-a se os nome
 
 ## Licença
 
-Adiciona aqui a licença do projeto e os respetivos termos de utilização, caso ainda não estejam definidos.
+Em andamento
