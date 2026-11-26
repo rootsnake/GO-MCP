@@ -122,7 +122,7 @@ O script de publicação Git deve ser executado a partir da raiz do repositório
 9. Acrescentar testes automatizados com saídas simuladas; testes não devem exigir scans reais.
 10. Documentar a instalação, configuração e uma demonstração ponta a ponta.
 
-## Estrutura de diretórios esperada
+## Estrutura de diretórios
 
 ```text
 .
