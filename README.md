@@ -145,4 +145,4 @@ A estrutura acima resume os caminhos em implantação.
 
 ## Licença
 
-Em andamento.
+Em andamento..
