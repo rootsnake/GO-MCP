@@ -136,7 +136,7 @@ go test ./...
         └── nmap_scan.py   # em integração
 ```
 
-A estrutura acima resume os caminhos em implantação...
+A estrutura acima resume os caminhos em implantação...novos recursos sendo implantados
 
 ## Licença
 
