@@ -140,4 +140,4 @@ A estrutura acima resume os caminhos em implantação...novos recursos sendo imp
 
 ## Licença
 
-Em andamento...
+Em andamento...pode ser usado
