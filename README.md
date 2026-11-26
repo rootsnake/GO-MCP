@@ -141,7 +141,7 @@ O script de publicação Git deve ser executado a partir da raiz do repositório
         └── nmap_scan.py   # em integração
 ```
 
-A estrutura acima resume os caminhos em implantação..
+A estrutura acima resume os caminhos em implantação...
 
 ## Licença
 
