@@ -98,16 +98,13 @@ A captura pode conter dados sensíveis. Deve limitar-se a interfaces e redes pr�
 
 ## Desenvolvimento e testes
 
-O servidor Go pode ser validado com:
+O servidor GO pode ser validado com:
 
 ```powershell
 go vet ./...
 go test ./...
+
 ```
-
-O MCP Inspector pode ser usado para confirmar que o servidor anuncia as ferramentas esperadas e que as chamadas devolvem respostas estruturadas. Testa primeiro ferramentas read-only e casos de erro antes de habilitar operações como `up` e `down`.
-
-O script de publicação Git deve ser executado a partir da raiz do repositório. Antes de publicar, confirma o resultado de `git status` e revê o conteúdo staged; evita assumir que `git add .` só adicionará ficheiros pretendidos.
 
 ## Roadmap em avaliação
 
